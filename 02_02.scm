@@ -1,7 +1,9 @@
-(define (midpoint-segment a b)
-  (make-point
-   ((/ 2 (+ (x-point a) (x-point b)))
-    (/ 2 (+ (y-point a) (y-point b))))))
+(define (midpoint-segment s)
+  (let ((a (start-segment s))
+        (b (end-segment s)))
+    (make-point
+     (/ (+ (x-point a) (x-point b)) 2)
+     (/ (+ (y-point a) (y-point b)) 2))))
 
 (define (make-segment start end)
   (cons start end))
@@ -27,3 +29,12 @@
 
 (define g (make-point 0 0))
 
+(define a (make-point 10 20))
+
+(define b (make-point -4 8))
+
+(define c (make-segment a b))
+
+(define d (midpoint-segment c))
+
+(print-point c)
