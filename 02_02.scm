@@ -37,4 +37,4 @@
 
 (define d (midpoint-segment c))
 
-(print-point c)
+(print-point d)
