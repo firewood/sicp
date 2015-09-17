@@ -11,6 +11,12 @@
 
 (define (rectangle-angle r) (cdr (cdr r)))
 
+(define (perimeter r)
+  (* (+ (rectangle-width r) (rectangle-height r)) 2))
+
+(define (area a)
+  (* (rectangle-width r) (rectangle-height r)))
+
 (define (make-segment start end)
   (cons start end))
 
