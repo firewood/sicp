@@ -4,9 +4,15 @@
 
 (define (lower-bound a) (car a))
 
+(define (interval-width a) (/ (- (upper-bound a) (lower-bound a)) 2))
+
 (define (add-interval x y)
   (make-interval (+ (lower-bound x) (lower-bound y))
                  (+ (upper-bound x) (upper-bound y))))
+
+(define (sub-interval x y)
+  (make-interval (- (lower-bound x) (lower-bound y))
+                 (- (upper-bound x) (upper-bound y))))
 
 (define (mul-interval x y)
   (let ((p1 (* (lower-bound x) (lower-bound y)))
@@ -24,4 +30,14 @@
 (define a (make-interval 3 5))
 
 (define b (make-interval 4 6))
+
+(define c (add-interval a b))
+
+(define d (sub-interval c b))
+
+(interval-width a)
+
+(interval-width b)
+
+(interval-width c)
 
