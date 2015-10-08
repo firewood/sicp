@@ -41,11 +41,9 @@
                 -6))
         (if (< lby 0)
             (if (< uby 0)
-                -8
-                -9)
-            )
-        )
-    ))
+                -7
+                -8)
+            -9))))
 
 (define (div-interval x y)
   (let ((uby (upper-bound y))
