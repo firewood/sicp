@@ -31,8 +31,8 @@
         (if (< ubx 0)
             (if (< lby 0)
                 (if (< uby 0)
-                    -1
-                    -2)
+                    (make-interval (* ubx uby) (* lbx lby))
+                    (make-interval (* lbx uby) (* lbx lby)))
                 -3)
             (if (< lby 0)
                 (if (< uby 0)
@@ -43,7 +43,7 @@
             (if (< uby 0)
                 -7
                 -8)
-            -9))))
+            (mul-interval-raw x y)))))
 
 (define (div-interval x y)
   (let ((uby (upper-bound y))
@@ -53,9 +53,9 @@
         (mul-interval x
                 (make-interval (/ 1.0 uby) (/ 1.0 lby))))))
 
-(define a (make-interval 3 5))
+(define a (make-interval -3 -1))
 
-(define b (make-interval 0 2))
+(define b (make-interval -4 2))
 
 (define c (mul-interval a b))
 
