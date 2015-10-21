@@ -28,8 +28,7 @@
       (last-pair-rec (cdr items))))
 
 (define (last-pair items)
-  (list-ref items (- (length items) 1)))
-
+  (list (list-ref items (- (length items) 1))))
 
 (define squares (list 1 4 9 16 25))
 
