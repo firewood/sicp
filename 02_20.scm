@@ -12,7 +12,7 @@
   (if (null? a)
       nil
       (if (f (car a))
-          (cons (car a) (filter f (cdr a)))
+          (cons (car a) (filter-rec f (cdr a)))
           (filter-rec f (cdr a)))))
 
 (define (filter f a)
