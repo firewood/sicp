@@ -7,6 +7,17 @@
             (cons a b))))
   (iter items nil))
 
-(define a (fringe (list (list 1 2) (list 3 4))))
+(define (fringe items)
+  (if (pair? items)
+      (if (pair? (car items))
+          (if (null? (cdr (car items)))
+              (cons (car (car items)) (fringe (cdr items)))
+              (fringe (cons (car (car items)) (cons (cdr (car items)) (cdr items)))))
+          (cons (car items) (fringe (cdr items))))
+      items))
 
-(define b (list 1 2 3 4))
+(define a (list 1 2 3 4))
+
+(define b (fringe (list (list 1 2) (list 3 4))))
+
+(define c (fringe (list (list 1 2 3) (list 4 5 6))))
