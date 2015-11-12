@@ -53,11 +53,26 @@
                         (enumerate-interval 0 n)))))
 
 (define (product-of-squares-of-odd-elements sequence)
-  
+  (accumulate *
+              1
+              (map square
+                   (filter odd? sequence))))
+
+(define (salary-of-highest-paid-programmer records)
+  (accumulate max
+              0
+              (map salary
+                   (filter programmer? records))))
 
 (define a (sum-odd-squares (list 1 2 3 4 5)))
 
 (define b (even-fibs 10))
 
 (define c (list-fib-squares 10))
+
+(define d (product-of-squares-of-odd-elements (list 1 2 3 4 5)))
+
+(define (map p sequence)
+  (accumulate (lambda (x y) (cons (p x) y)) nil sequence))
+
 
